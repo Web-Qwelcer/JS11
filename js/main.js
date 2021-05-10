@@ -33,4 +33,53 @@
 
 //////////////////////////////////////////////////////////// Завдання 3 ////////////////////////////////////////////////////////////
 
+let time = (hours, minutes, seconds) => {
+    return {
+        'hours' : hours,
+        'minutes' : minutes,
+        'seconds' : seconds,
+        'timeOutput' : function() {
+            console.log(`${hours}:${minutes}:${seconds}`)
+        },
+        'changingHours' : function() {
+            hours = +prompt('Enter hours -> ')
+        },
+        'changingMinutes' : function() {
+            minutes = +prompt('Enter minutes -> ')
+        },
+        'changingSeconds' : function() {
+            seconds = +prompt('Enter seconds -> ')
+        }
+    }
+}
 
+let hours = +prompt('Enter hours -> '),
+    minutes = +prompt('Enter minutes -> '),
+    seconds = +prompt('Enter seconds -> ')
+
+let clock = time(hours, minutes, seconds)
+
+clock.timeOutput()
+
+let menu = 0
+
+do {
+    menu = +prompt('1 - Changing hours\n2 - Changing minutes\n3 - Changing seconds\n0 - Exit')
+
+    switch (menu) {
+        case 1:
+            clock.changingHours()
+            clock.timeOutput()
+            break
+        case 2:
+            clock.changingMinutes()
+            clock.timeOutput()
+            break
+        case 3:
+            clock.changingSeconds()
+            clock.timeOutput()
+            break
+        default:
+            console.log('Exit!!!')
+    }
+} while (menu != 0)
